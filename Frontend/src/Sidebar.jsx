@@ -8,7 +8,7 @@ function SideBar(){
     const getAllThreads = async () =>{
 
         try{
-            const response = await fetch("http://localhost:5000/api/thread");
+            const response = await fetch("https://sigmagpt-1-trqs.onrender.com/api/thread");
             const res = await response.json();
             const filterData = res.map(thread => ({threadId: thread. threadId, title: thread.title}));
             
@@ -33,7 +33,7 @@ function SideBar(){
 const changeThread = async (newthreadId)=>{
  setCurrThreadId(newthreadId);
  try{
-    const response = await fetch(`http://localhost:5000/api/thread/${newthreadId}`);
+    const response = await fetch(`https://sigmagpt-1-trqs.onrender.com/api/thread/${newthreadId}`);
     const res = await response.json();
     console.log(res);
     setPrevChats(res);
@@ -48,7 +48,7 @@ catch(err){
 
 const deleteThread = async (threadId) =>{
     try{
-        const response = await fetch(`http://localhost:5000/api/thread/${threadId}`,{method:"Delete"});
+        const response = await fetch(`https://sigmagpt-1-trqs.onrender.com/api/thread/${threadId}`,{method:"Delete"});
         const res = await response.json();
         console.log(res);
         // updated threads re-render
@@ -60,7 +60,6 @@ const deleteThread = async (threadId) =>{
         console.log(err);
     }
 }
-
 
     return(
         <section className="sidebar">
@@ -85,9 +84,6 @@ const deleteThread = async (threadId) =>{
                 }
 
                     ></i>
-                    
-                    
-                    
                     
                     </li>
                   ))

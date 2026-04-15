@@ -25,7 +25,7 @@ function ChatWindow() {
       body: JSON.stringify({ message: prompt, threadId: currThreadId }),
     };
     try {
-      const response = await fetch("http://localhost:5000/api/chat", options);
+      const response = await fetch("https://sigmagpt-1-trqs.onrender.com/api/chat", options);
       const data = await response.json();
       setReply(data.reply);
     } catch (err) {

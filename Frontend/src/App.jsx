@@ -8,13 +8,13 @@ function App(){
     const [prompt, setPrompt] = useState("");
     const [reply, setReply] = useState(null);
     const [currThreadId, setCurrThreadId] = useState(uuidv1());
-    const [prevChats, setPrevChats] = useState([]); // stores all chats of curr threads
+    const [prevChats, setPrevChats] = useState([]); 
     const [newChat, setNewChat] = useState(true);
     const [allThreads, setAllThreads] = useState([]);
      const [theme, setTheme] = useState("dark");
 
      const toggleTheme = () => {
-        setTheme(prev => prev === "dark" ? "light" : "dark"); // 👈 ADD 2: toggle function
+        setTheme(prev => prev === "dark" ? "light" : "dark"); 
     }
 
     const providerValues = {
