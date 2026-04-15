@@ -4,6 +4,7 @@ import ChatWindow from "./ChatWindow.jsx";
 import {MyContext} from "./MyContext.jsx";
 import { useState } from 'react';
 import {v1 as uuidv1} from "uuid";
+
 function App(){
     const [prompt, setPrompt] = useState("");
     const [reply, setReply] = useState(null);
@@ -11,9 +12,10 @@ function App(){
     const [prevChats, setPrevChats] = useState([]); 
     const [newChat, setNewChat] = useState(true);
     const [allThreads, setAllThreads] = useState([]);
-     const [theme, setTheme] = useState("dark");
+    const [theme, setTheme] = useState("dark");
+    const [sidebarOpen, setSidebarOpen] = useState(false); // ✅ NEW
 
-     const toggleTheme = () => {
+    const toggleTheme = () => {
         setTheme(prev => prev === "dark" ? "light" : "dark"); 
     }
 
@@ -25,15 +27,17 @@ function App(){
         prevChats, setPrevChats,
         allThreads, setAllThreads,
         theme, toggleTheme,
+        sidebarOpen, setSidebarOpen, // ✅ NEW
     };
+
     return(
         <div className='app' data-theme={theme}>
             <MyContext.Provider value={providerValues}>
-            <Sidebar></Sidebar>
-            <ChatWindow></ChatWindow>
+                <Sidebar />
+                <ChatWindow />
             </MyContext.Provider>
-            
         </div>
     )
 }
+
 export default App;

@@ -11,6 +11,7 @@ function ChatWindow() {
     currThreadId,
     prevChats, setNewChat, setPrevChats,
     theme, toggleTheme,
+    sidebarOpen, setSidebarOpen,
   } = useContext(MyContext);
 
   const [loading, setLoading] = useState(false);
@@ -51,13 +52,27 @@ function ChatWindow() {
 
   return (
     <div className="chatWindow">
+
+      {/* ── MOBILE OVERLAY (sidebar ke peeche dark background) ── */}
+      <div
+        className={`overlay ${sidebarOpen ? "open" : ""}`}
+        onClick={() => setSidebarOpen(false)}
+      ></div>
+
       <div className="navbar">
-        <span>
-          SigmaGPT <i className="fa-solid fa-angle-down"></i>
-        </span>
+
+        {/* ── HAMBURGER BUTTON (sirf mobile pe dikhega) ── */}
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <button className="hamburger" onClick={() => setSidebarOpen(true)}>
+            <i className="fa-solid fa-bars"></i>
+          </button>
+          <span>
+            SigmaGPT <i className="fa-solid fa-angle-down"></i>
+          </span>
+        </div>
 
         <div className="navRight">
-          {/* 🌙 / ☀️ Theme Toggle Button */}
+          {/* Theme Toggle */}
           <button className="themeToggle" onClick={toggleTheme} title="Toggle Theme">
             {theme === "dark" ? (
               <i className="fa-solid fa-sun"></i>

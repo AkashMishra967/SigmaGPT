@@ -193,3 +193,26 @@ input:focus {
   border-radius: 6px;
   cursor: pointer;
 }
+
+/* ── MOBILE: white space fix + hamburger ── */
+@media (max-width: 768px) {
+  .chatWindow {
+    height: 100dvh;  /* dynamic viewport height - mobile pe sahi kaam karta hai */
+    overflow: hidden;
+  }
+  .hamburger {
+    display: flex;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+  }
+}
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
