@@ -1,0 +1,69 @@
+.chats{
+flex: 1;              /* ← bacha hua poora space lo */
+  overflow-y: auto;     /* ← scroll tab aaye jab zaroorat ho */
+  padding: 2rem;        /* 8rem bahut zyada tha */
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+.userDiv{
+    display:flex;
+justify-content: flex-end;
+font-size: 0.9rem;
+}
+.getDiv{
+    text-align: left;
+    font-size: 0.9rem;
+}
+.userMessage{
+    background-color: #323232;
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin-left: 15rem;
+    max-width: 500px;
+    width: fit-content;
+}
+.gptMessage{
+
+
+}
+
+.chats::-webkit-scrollbar { width: 6px; }
+.chats::-webkit-scrollbar-track { background: #1a1a1a; }
+.chats::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+
+/* Bullet points fix */
+.chats ul, .chats ol {
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.chats li {
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+/* GPT reply left align */
+.gptDiv {
+  text-align: left;
+  width: 100%;
+}
+
+.gptDiv p, .gptDiv pre, .gptDiv code {
+  text-align: left;
+}
+
+/* Code block left align */
+.chats pre {
+  text-align: left;
+  width: 100%;
+}
+
+.hljs{
+  border-radius: 14px ;
+}
+pre{
+  white-space: pre-wrap;
+}
