@@ -52,10 +52,16 @@
   width: 100%;
   display: flex;
   padding: 0 1rem;
+  
   justify-content: space-between;
   align-items: center;
 }
+.text{
+  position: relative;
+  left: 20px;
+}
 .navbar > span {
+  
   margin: 1rem 0;
   color: var(--text-primary);
 }
@@ -79,6 +85,8 @@
   font-size: 14px;
   cursor: pointer;
   display: flex;
+  position: relative;
+  right: 20px;
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease, transform 0.2s ease;
@@ -101,6 +109,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  right: 15px;
   cursor: pointer;
   color: #fff;
   position: relative;
@@ -122,6 +132,14 @@
   justify-content: space-between;
   align-items: center;
 }
+
+/* ── MOBILE: white space fix + hamburger ── */
+@media (max-width: 768px) {
+  .inputBox {
+   width: 95%;
+  }
+}
+
 input {
   width: 100%;
   border: none;
@@ -208,7 +226,7 @@ input:focus {
     color: var(--text-primary);
     font-size: 20px;
     position: relative;
-    left: 10px;
+    left: 15px;
     cursor: pointer;
     padding: 0;
     margin: 0;

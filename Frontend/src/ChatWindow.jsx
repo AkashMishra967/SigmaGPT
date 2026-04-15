@@ -65,7 +65,7 @@ function ChatWindow() {
           <button className="hamburger" onClick={() => setSidebarOpen(true)}>
             <i className="fa-solid fa-bars"></i>
           </button>
-          <span>
+          <span className="text">
             SigmaGPT <i className="fa-solid fa-angle-down"></i>
           </span>
         </div>
