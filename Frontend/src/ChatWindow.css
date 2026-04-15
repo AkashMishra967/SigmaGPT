@@ -51,11 +51,12 @@
 .navbar {
   width: 100%;
   display: flex;
+  padding: 0 1rem;
   justify-content: space-between;
   align-items: center;
 }
 .navbar > span {
-  margin: 1rem 2rem;
+  margin: 1rem 0;
   color: var(--text-primary);
 }
 
@@ -63,8 +64,8 @@
 .navRight {
   display: flex;
   align-items: center;
-  gap: 32px;
-  margin: 1rem 2rem;
+  gap: 16px;
+  margin: 1rem 0;
 }
 
 /* ─── Theme Toggle Button ─────────────────────────────────── */

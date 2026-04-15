@@ -53,16 +53,15 @@ function ChatWindow() {
   return (
     <div className="chatWindow">
 
-      {/* ── MOBILE OVERLAY (sidebar ke peeche dark background) ── */}
+      {/* ── MOBILE OVERLAY ── */}
       <div
         className={`overlay ${sidebarOpen ? "open" : ""}`}
         onClick={() => setSidebarOpen(false)}
       ></div>
 
       <div className="navbar">
-
-        {/* ── HAMBURGER BUTTON (sirf mobile pe dikhega) ── */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        {/* Left side - hamburger + title */}
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <button className="hamburger" onClick={() => setSidebarOpen(true)}>
             <i className="fa-solid fa-bars"></i>
           </button>
@@ -71,8 +70,8 @@ function ChatWindow() {
           </span>
         </div>
 
+        {/* Right side - theme + user */}
         <div className="navRight">
-          {/* Theme Toggle */}
           <button className="themeToggle" onClick={toggleTheme} title="Toggle Theme">
             {theme === "dark" ? (
               <i className="fa-solid fa-sun"></i>
@@ -81,7 +80,6 @@ function ChatWindow() {
             )}
           </button>
 
-          {/* User Icon */}
           <div className="userIconDiv" onClick={handleProfileClick}>
             <span className="userIcon">
               <i className="fa-solid fa-user"></i>
