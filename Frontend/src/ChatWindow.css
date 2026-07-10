@@ -70,7 +70,7 @@
 .navRight {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   margin: 1rem 0;
 }
 
@@ -85,8 +85,6 @@
   font-size: 14px;
   cursor: pointer;
   display: flex;
-  position: relative;
-  right: 20px;
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease, transform 0.2s ease;
@@ -103,17 +101,21 @@
 }
 .userIcon {
   background-color: var(--user-icon-bg);
+  margin-top: 20px;
   height: 30px;
   width: 30px;
+  margin-right: 20px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  right: 15px;
   cursor: pointer;
   color: #fff;
-  position: relative;
+}
+.themeToggle{
+  margin-top: 20px;
+  margin-right: 10px;
+
 }
 
 /* ─── Chat Input ──────────────────────────────────────────── */
@@ -137,6 +139,19 @@
 @media (max-width: 768px) {
   .inputBox {
    width: 95%;
+  }
+}
+
+/* ── DESKTOP: input box ko chat text ke saath match karo (same width, left-aligned) ── */
+@media (min-width: 1024px) {
+  .chatInput {
+    align-items: flex-start;
+    padding-left: 2rem;
+  }
+  .inputBox {
+    max-width: 800px;
+    position: relative;
+    left: 90px;
   }
 }
 
@@ -181,6 +196,13 @@ input:focus {
   padding: 0.5rem;
   color: var(--text-muted);
 }
+@media(min-width:1024px){
+  
+    .info{
+margin-left: 250px;
+    }
+  }
+
 
 /* ─── Dropdown ────────────────────────────────────────────── */
 .dropDown {

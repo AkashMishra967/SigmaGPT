@@ -2,6 +2,7 @@ import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext";
 import {v1 as uuidv1} from "uuid";
+import logo from "./assets/blacklogo.png";
 
 function SideBar(){
     const {
@@ -69,7 +70,7 @@ function SideBar(){
         // ✅ NEW - sidebarOpen true hone pe "open" class lagegi
         <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
             <button onClick={createNewChat}>
-                <img src="src/assets/blacklogo.png" alt="gpt logo" className="logo" />
+                <img src={logo} alt="gpt logo" className="logo" />
                 <h3>New Chat</h3>
                 <span><i className="fa-solid fa-pen-to-square"></i></span>
             </button>

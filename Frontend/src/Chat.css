@@ -1,6 +1,11 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .chats{
 flex: 1;              /* ← bacha hua poora space lo */
   overflow-y: auto;     /* ← scroll tab aaye jab zaroorat ho */
+  overflow-x: hidden;   /* ← right side cut hone se rokega */
   padding: 2rem;        /* 8rem bahut zyada tha */
   display: flex;
   flex-direction: column;
@@ -8,6 +13,16 @@ flex: 1;              /* ← bacha hua poora space lo */
   width: 100%;
   margin: 0 auto;
 }
+
+/* Sirf desktop/laptop (1024px aur usse bada screen) ke liye */
+@media (min-width: 1024px) {
+  .chats{
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 1050px;
+  }
+}
+
 .userDiv{
     display:flex;
 justify-content: flex-end;
@@ -24,6 +39,8 @@ font-size: 0.9rem;
     margin-right: 3rem;
     max-width: 500px;
     width: fit-content;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 .gptMessage{
 
@@ -43,22 +60,32 @@ font-size: 0.9rem;
 .chats li {
   text-align: left;
   margin-bottom: 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* GPT reply left align */
 .gptDiv {
   text-align: left;
   width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .gptDiv p, .gptDiv pre, .gptDiv code {
   text-align: left;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* Code block left align */
 .chats pre {
   text-align: left;
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .hljs{
