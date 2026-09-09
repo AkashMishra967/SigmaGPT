@@ -59,7 +59,7 @@ router.delete("/thread/:threadId", async (req,res) =>{
         if(!deletedThread){
             res.status(404).json({error:"Thread not found"});
         }
-        res.status(200).json({sucess:"Thread deleted successfully"});
+        res.status(200).json({sucess:'Thread deleted successfully'});
 
     }
     catch(err){
