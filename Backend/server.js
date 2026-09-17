@@ -5,20 +5,20 @@ import dotenv from "dotenv";
 import { OpenAiResponse } from "./utils/OpenAI.js";
 import chatRoutes from "./routes/chat.js";
 import cookieParser from "cookie-parser";
-// import authRoutes from "./routes/auth.js";   // jab auth routes file ban jaye, tab uncomment karo
+import userRoutes from "./routes/user.router.js";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:5173",   // tumhara frontend URL, deploy pe production URL daalna
+  origin: "http://localhost:5173",
   credentials: true
 }));
 app.use(cookieParser());
 
 app.use("/api", chatRoutes);
-// app.use("/api/auth", authRoutes);   // jab auth routes ban jaye, tab uncomment karo
+app.use("/api/auth", userRoutes)
 
 
 app.post("/chat", async (req, res) => {

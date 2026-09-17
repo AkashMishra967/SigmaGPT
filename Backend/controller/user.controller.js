@@ -1,5 +1,5 @@
 import express from "express";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 const router = express.Router();
 import User from "../models/user.model.js"
@@ -30,7 +30,6 @@ export const signup = async (req, res) =>{
 }}
 
 
-
 export const login = async (req,res) =>{
     try{
         const {email,password} = req.body;
@@ -50,19 +49,27 @@ export const login = async (req,res) =>{
             process.env.JWT_SECRET,
             {expiresIn: "7d"}
         );
+
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
+
         return res.status(200).json({message:"Login Succcessfullly",
-        token : token,
         user :{
             id: user._id,
             email : user.email,
             username: user.username
-
         }
         })
     }catch(error){
         return res.status(500).json({message:"Server Error"})
     }
 }
+
+
 
 export const logout = async(req,res) =>{
     try{
@@ -77,7 +84,6 @@ export const logout = async(req,res) =>{
 return res.status(500).json({message:"server error"});
 }
 }
-
 
 
 
