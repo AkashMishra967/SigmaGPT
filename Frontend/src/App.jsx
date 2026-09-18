@@ -1,8 +1,8 @@
 import './App.css';
 import Sidebar from "./Sidebar.jsx";
 import ChatWindow from "./ChatWindow.jsx";
-import Login from "./Login.jsx";
-import Signup from "./Signup.jsx";
+import Login from "./login.jsx";
+import Signup from "./signup.jsx";
 import { MyContext } from "./MyContext.jsx";
 import { useState } from 'react';
 import { v1 as uuidv1 } from "uuid";
