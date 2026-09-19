@@ -3,6 +3,7 @@ import Chat from "./Chat.jsx";
 import { MyContext } from "./MyContext.jsx";
 import { useContext, useState, useEffect } from "react";
 import { ScaleLoader } from "react-spinners";
+import { BASE_URL } from "./config.js";
 
 function ChatWindow() {
   const {
@@ -23,10 +24,11 @@ function ChatWindow() {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+       credentials: "include",
       body: JSON.stringify({ message: prompt, threadId: currThreadId }),
     };
     try {
-      const response = await fetch("https://sigmagpt-1-trqs.onrender.com/api/chat", options);
+      const response = await fetch(`${BASE_URL}/api/chat`, options);
       const data = await response.json();
       setReply(data.reply);
     } catch (err) {
