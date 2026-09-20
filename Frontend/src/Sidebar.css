@@ -133,3 +133,18 @@ button span {
     display: block;
   }
 }
+
+
+.avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #10a37f;  /* koi bhi color chuno */
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 8px;
+}

@@ -207,12 +207,12 @@ margin-left: 250px;
 /* ─── Dropdown ────────────────────────────────────────────── */
 .dropDown {
   position: absolute;
-  top: 4rem;
+  top: 4.5rem;              
   right: 1.2rem;
   width: 140px;
   background-color: var(--bg-dropdown);
   color: var(--text-primary);
-  padding: 0.3rem 0.5rem;
+  padding: 1.6rem 0.5rem 0.3rem 0.5rem;   
   border-radius: 6px;
   text-align: left;
   z-index: 1000;
@@ -258,4 +258,16 @@ margin-left: 250px;
   .hamburger {
     display: none;
   }
+}
+.dropDownClose {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.dropDownClose:hover {
+    color: #fff;
 }

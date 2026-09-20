@@ -11,7 +11,7 @@ function Login(){
 const [email,setemail] = useState("");
 const [password,setpassword] = useState("");
 const [errorMsg,seterrorMsg] = useState("");
-const { setIsLoggedIn } = useContext(MyContext);
+const { setIsLoggedIn, setuser } = useContext(MyContext);
 
 const handleLogin = async()=>{
     const response = await fetch(`${BASE_URL}/api/auth/login`,{
@@ -25,6 +25,7 @@ const handleLogin = async()=>{
     console.log(data);
     if(response.ok){
         setIsLoggedIn(true);
+        setuser(data.user);
         navigate("/");
     }else{
 seterrorMsg(data.message);

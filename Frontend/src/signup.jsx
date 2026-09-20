@@ -1,6 +1,7 @@
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "./config.js";
+import "./signup.css";
 
 function Signup()  {
      const navigate = useNavigate();
@@ -29,22 +30,19 @@ const handleSignup = async() =>{
 
     return(
         <>
-        <div>
-<input type="text" placeholder="Enter the username" value={username} 
+        <div className="parent">
+<input  className ="inp1" type="text" placeholder="Enter the username" value={username} 
 onChange={(e) =>setusername(e.target.value)}/>
 
-<input type="email" placeholder="Enter the email" value={email}
+<input  className ="inp1" type="email" placeholder="Enter the email" value={email}
 onChange={(e) =>setemail(e.target.value)} />
 
-<input type="password" placeholder="enter the password" value={password}
+<input  className ="inp1" type="password" placeholder="enter the password" value={password}
 onChange={(e) =>setpassword(e.target.value)} />
 
-{errorMsg && <p style={{color: "red"}}>{errorMsg}</p>}
+{errorMsg && <p style={{color: "red",textAlign:"center"}}>{errorMsg}</p>}
 
-<button 
-onClick={handleSignup}
->Signup</button>
-        </div>
+<button  className ="btn1" onClick={handleSignup}>Signup</button></div>
         </>
 
     )

@@ -28,32 +28,34 @@ function App() {
     const [theme, setTheme] = useState("dark");
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user,setuser] = useState("");
     const [authChecked, setAuthChecked] = useState(false);
 
     const toggleTheme = () => {
         setTheme(prev => prev === "dark" ? "light" : "dark");
     }
-
-    useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const response = await fetch(`${BASE_URL}/api/auth/me`, {
-                    method: "GET",
-                    credentials: "include"
-                });
-                if (response.ok) {
-                    setIsLoggedIn(true);
-                } else {
-                    setIsLoggedIn(false);
-                }
-            } catch (err) {
+useEffect(() => {
+    const checkAuth = async () => {
+        try {
+            const response = await fetch(`${BASE_URL}/api/auth/me`, {
+                method: "GET",
+                credentials: "include"
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setIsLoggedIn(true);
+                setuser(data.user);
+            } else {
                 setIsLoggedIn(false);
-            } finally {
-                setAuthChecked(true);
             }
-        };
-        checkAuth();
-    }, []);
+        } catch (err) {
+            setIsLoggedIn(false);
+        } finally {
+            setAuthChecked(true);
+        }
+    };
+    checkAuth();
+}, []);
 
     const providerValues = {
         prompt, setPrompt,
@@ -63,11 +65,12 @@ function App() {
         prevChats, setPrevChats,
         allThreads, setAllThreads,
         theme, toggleTheme,
+        user,setuser,
         sidebarOpen, setSidebarOpen,
         isLoggedIn, setIsLoggedIn,
     };
 
-    // ✅ Naya block - jab tak auth check complete na ho, Loading dikhao
+   
     if (!authChecked) {
         return <div>Loading...</div>;
     }

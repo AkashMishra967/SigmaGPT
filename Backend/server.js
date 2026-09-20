@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));
 app.use(cookieParser());
@@ -53,7 +53,7 @@ const connectDB = async () => {
 };
 
 connectDB().then(() => {
-  app.listen(5000, () => {
-    console.log(" Server running on port");
+  app.listen(process.env.PORT || 5000, () => {
+    console.log("Server running on port");
   });
 });

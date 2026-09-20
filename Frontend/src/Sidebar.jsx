@@ -3,18 +3,23 @@ import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext";
 import {v1 as uuidv1} from "uuid";
 import logo from "./assets/blacklogo.png";
+import { BASE_URL } from "./config.js";
+
 
 function SideBar(){
     const {
         allThreads, setAllThreads,
         currThreadId, setCurrThreadId,
         setNewChat, setPrompt, setReply, setPrevChats,
-        sidebarOpen, setSidebarOpen, // ✅ NEW
+        sidebarOpen, setSidebarOpen, 
+        user,setuser,
     } = useContext(MyContext);
 
     const getAllThreads = async () => {
         try {
-            const response = await fetch("https://sigmagpt-1-trqs.onrender.com/api/thread");
+            const response = await fetch(`${BASE_URL}/api/thread`, {
+                credentials: "include"
+            });
             const res = await response.json();
             const filterData = res.map(thread => ({ threadId: thread.threadId, title: thread.title }));
             console.log(filterData);
@@ -34,19 +39,21 @@ function SideBar(){
         setReply(null);
         setCurrThreadId(uuidv1());
         setPrevChats([]);
-        setSidebarOpen(false); // ✅ NEW - mobile pe click karne ke baad sidebar band ho
+        setSidebarOpen(false);
     }
 
     const changeThread = async (newthreadId) => {
         setCurrThreadId(newthreadId);
         try {
-            const response = await fetch(`https://sigmagpt-1-trqs.onrender.com/api/thread/${newthreadId}`);
+            const response = await fetch(`${BASE_URL}/api/thread/${newthreadId}`, {
+                credentials: "include"
+            });
             const res = await response.json();
             console.log(res);
             setPrevChats(res);
             setNewChat(false);
             setReply(null);
-            setSidebarOpen(false); // ✅ NEW - thread select karne ke baad sidebar band ho
+            setSidebarOpen(false);
         } catch(err) {
             console.log(err);
         }
@@ -54,7 +61,10 @@ function SideBar(){
 
     const deleteThread = async (threadId) => {
         try {
-            const response = await fetch(`https://sigmagpt-1-trqs.onrender.com/api/thread/${threadId}`, { method: "DELETE" });
+            const response = await fetch(`${BASE_URL}/api/thread/${threadId}`, {
+                method: "DELETE",
+                credentials: "include"
+            });
             const res = await response.json();
             console.log(res);
             setAllThreads(prev => prev.filter(thread => thread.threadId !== threadId));
@@ -67,7 +77,6 @@ function SideBar(){
     }
 
     return(
-        // ✅ NEW - sidebarOpen true hone pe "open" class lagegi
         <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
             <button onClick={createNewChat}>
                 <img src={logo} alt="gpt logo" className="logo" />
@@ -96,9 +105,15 @@ function SideBar(){
                 }
             </ul>
 
-            <div className="sign">
-                <p><i className="fa-regular fa-circle circle"></i> Akash Mishra</p>
-            </div>
+           <div className="sign">
+    <p>
+        <span className="avatar">
+            {user?.username?.split(" ")[0]?.[0]?.toUpperCase()}
+            {user?.username?.split(" ")?.slice(-1)[0]?.[0]?.toUpperCase()}
+        </span>
+        {user?.username}
+    </p>
+</div>
         </section>
     )
 }

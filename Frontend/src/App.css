@@ -10,8 +10,8 @@ body {
 .app {
   background-color: #212121;
   display: flex;
+  min-height: 100vh;   /* ✅ ye add karo */
 }
-
 /* ── MOBILE FIX ── */
 @media (max-width: 768px) {
   .app {

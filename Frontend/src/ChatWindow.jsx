@@ -4,12 +4,15 @@ import { MyContext } from "./MyContext.jsx";
 import { useContext, useState, useEffect } from "react";
 import { ScaleLoader } from "react-spinners";
 import { BASE_URL } from "./config.js";
+import { useNavigate } from "react-router-dom";
 
 function ChatWindow() {
+   const navigate = useNavigate();
   const {
     prompt, setPrompt,
     reply, setReply,
     currThreadId,
+    setIsLoggedIn, setuser,
     prevChats, setNewChat, setPrevChats,
     theme, toggleTheme,
     sidebarOpen, setSidebarOpen,
@@ -52,6 +55,23 @@ function ChatWindow() {
     setIsOpen(!isOpen);
   };
 
+
+const handleLogout = async() =>{
+  try{
+  
+  const response = await fetch(`${BASE_URL}/api/auth/logout`,{
+    method:"POST",
+    credentials:"include"
+  });
+  setIsLoggedIn(false);
+  setuser(null);
+  navigate("/login");
+}catch(error){
+  console.log(error);
+}
+}
+
+
   return (
     <div className="chatWindow">
 
@@ -91,19 +111,22 @@ function ChatWindow() {
       </div>
 
       {isOpen && (
-        <div className="dropDown">
-          <div className="dropDownItem">
-            <i className="fa-regular fa-star"></i>Upgrade plan
-          </div>
-          <div className="dropDownItem">
-            <i className="fa-solid fa-gear"></i>Setting
-          </div>
-          <div className="dropDownItem">
-            <i className="fa-solid fa-arrow-right-from-bracket"></i>Log out
-          </div>
-        </div>
-      )}
+  <div className="dropDown">
+    <div className="dropDownClose" onClick={() => setIsOpen(false)}>
+      <i className="fa-solid fa-xmark"></i>
+    </div>
 
+    <div className="dropDownItem">
+      <i className="fa-regular fa-star"></i>Upgrade plan
+    </div>
+    <div className="dropDownItem">
+      <i className="fa-solid fa-gear"></i>Setting
+    </div>
+    <div className="dropDownItem" onClick={handleLogout}>
+      <i className="fa-solid fa-arrow-right-from-bracket"></i>Log out
+    </div>
+  </div>
+)}
       <Chat />
       <ScaleLoader color="#afff" loading={loading} />
 
