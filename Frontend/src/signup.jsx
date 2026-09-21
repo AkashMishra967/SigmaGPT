@@ -31,6 +31,7 @@ const handleSignup = async() =>{
     return(
         <>
         <div className="parent">
+            <h1 className="head1">Signup</h1>
 <input  className ="inp1" type="text" placeholder="Enter the username" value={username} 
 onChange={(e) =>setusername(e.target.value)}/>
 
