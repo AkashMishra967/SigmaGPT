@@ -42,7 +42,7 @@ function Login(){
     return(
         <div className="parent">
             <div className="authCard">
-                <div className="logoCircle">S</div>
+                <div className="logoCircle">L</div>
                 <h1 className="head1">Welcome back</h1>
                 <p className="subText">Log in to continue to SigmaGPT</p>
 
