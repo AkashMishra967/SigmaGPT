@@ -133,7 +133,7 @@ html, body {
     cursor: not-allowed;
 }
 
-/* ─── Switch text (login link) ───────────────────────────── */
+/* ─── Switch text (signup link) ──────────────────────────── */
 .switchText {
     color: #9a9a9a;
     font-size: 0.85rem;
