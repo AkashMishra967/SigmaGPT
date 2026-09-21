@@ -1,71 +1,108 @@
-@media(max-width:480px){
-.parent{
-    margin-top: 30px;
-    border: 1px solid black;
-    width: 380px;
-    height: 450px;
-    margin-left: 30px;
-    
-
-}
-.head1{
-    text-align: center;
-}
-
-.inp1{
-    position: relative;
-    top: 20px;
-    left: 10px;
-    width: 330px;
-    margin: 10px;
-   
-}
-.btn1{
-     width: 280px;
+/* ─── Page Wrapper ────────────────────────────────────────── */
+.parent {
+    background-color: #212121;
+    min-height: 100vh;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-    margin-left: 30px;
-    
-    border-radius: 20px;
-  
-}
-.btn:hover{
-  cursor: pointer;
-  background-color: antiquewhite;
-}
+    gap: 16px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-
-
-
-@media(min-width:1024px){
-.parent{
-    border: 1px white double;
-    height: 500px;
-    width: 400px;
-    margin-top: 80px;
-   margin-left: 300px;
-    
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.inp1{
-    margin: 10px;
-    margin-top: 30px;
-    width: 300px;
-    margin-left:50px ;
+/* ─── Heading ─────────────────────────────────────────────── */
+.head1 {
+    color: #ececec;
+    font-family: "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
-.btn1{
-   margin-top: 20px;
-   margin-left: 70px;
-    width: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+
+/* ─── Inputs ──────────────────────────────────────────────── */
+.inp1 {
+    width: 100%;
+    max-width: 350px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ececec;
+    font-size: 0.95rem;
+    font-family: "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
-.btn:hover{
-    background-color: antiquewhite;
+
+.inp1::placeholder {
+    color: #9a9a9a;
 }
+
+.inp1:focus {
+    border-color: #10a37f;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Button ──────────────────────────────────────────────── */
+.btn1 {
+    width: 100%;
+    max-width: 350px;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: #10a37f;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn1:hover {
+    background-color: #0d8c6d;
+}
+
+.btn1:active {
+    transform: scale(0.98);
+}
+
+/* ─── Mobile Responsive ──────────────────────────────────── */
+@media (max-width: 768px) {
+    .parent {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .head1 {
+        font-size: 1.5rem;
+    }
+
+    .inp1,
+    .btn1 {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .head1 {
+        font-size: 1.3rem;
+    }
+
+    .inp1 {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    .btn1 {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
 }
