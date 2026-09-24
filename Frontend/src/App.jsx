@@ -7,6 +7,8 @@ import { MyContext } from "./MyContext.jsx";
 import { useState, useEffect } from 'react';
 import { v1 as uuidv1 } from "uuid";
 import { BASE_URL } from "./config.js";
+import ForgotPassword from "./ForgotPassword.jsx";
+import ResetPassword from "./ResetPassword.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function Dashboard() {
@@ -82,6 +84,8 @@ useEffect(() => {
                     <Routes>
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<Signup />} />
+                        <Route path="/forgot-password" element={<ForgotPassword />} />
+                        <Route path="/reset-password" element={<ResetPassword />} />
                         <Route
                             path="/"
                             element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}

@@ -59,6 +59,10 @@ function Login(){
                 </button>
 
                 <p className="switchText">
+    <Link to="/forgot-password" className="switchLink">Forgot Password?</Link>
+</p>
+
+                <p className="switchText">
                     Don't have an account? <Link to="/signup" className="switchLink">Sign up</Link>
                 </p>
             </div>
