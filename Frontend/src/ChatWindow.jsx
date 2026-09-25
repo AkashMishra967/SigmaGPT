@@ -72,6 +72,50 @@ const handleLogout = async() =>{
 }
 
 
+
+
+const handleUpgrade = async () => {
+    try {
+        // Step 1: Backend se order banwao
+        const orderResponse = await fetch(`${BASE_URL}/api/payment/create-order`, {
+            method: "POST",
+            credentials: "include"
+        });
+        const order = await orderResponse.json();
+
+        // Step 2: Razorpay checkout options
+        const options = {
+            key: "rzp_test_xxxxxxxxxx",   // ✅ apna Razorpay Key ID (public wala) yaha daalo
+            amount: order.amount,
+            currency: order.currency,
+            name: "SigmaGPT",
+            description: "Upgrade to Premium",
+            order_id: order.id,
+            handler: async function (response) {
+                // Step 3: Payment successful hone ke baad, backend se verify karwao
+                const verifyResponse = await fetch(`${BASE_URL}/api/payment/verify`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include",
+                    body: JSON.stringify(response)
+                });
+                const data = await verifyResponse.json();
+                alert(data.message);
+            },
+            theme: {
+                color: "#10a37f"
+            }
+        };
+
+        const rzp = new window.Razorpay(options);
+        rzp.open();
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
   return (
     <div className="chatWindow">
 
@@ -116,7 +160,7 @@ const handleLogout = async() =>{
       <i className="fa-solid fa-xmark"></i>
     </div>
 
-    <div className="dropDownItem">
+    <div className="dropDownItem"  onClick={handleUpgrade} >
       <i className="fa-regular fa-star"></i>Upgrade plan
     </div>
     <div className="dropDownItem">

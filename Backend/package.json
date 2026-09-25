@@ -17,6 +17,7 @@
     "node-fetch": "^3.3.2",
     "nodemailer": "^10.0.10",
     "openai": "^6.33.0",
+    "razorpay": "^2.9.8",
     "resend": "^6.29.0"
   },
   "devDependencies": {

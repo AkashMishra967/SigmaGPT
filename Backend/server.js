@@ -6,6 +6,7 @@ import { OpenAiResponse } from "./utils/OpenAI.js";
 import chatRoutes from "./routes/chat.js";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/user.router.js";
+import paymentRoutes from "./routes/payment.router.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(cookieParser());
 
 app.use("/api", chatRoutes);
 app.use("/api/auth", userRoutes)
+app.use("/api/payment", paymentRoutes);
 
 
 app.post("/chat", async (req, res) => {

@@ -23,7 +23,11 @@ const userSchema = new mongoose.Schema({
 },
 resetOtpExpiry: {
     type: Date
-}
+},
+isPremium: {
+        type: Boolean,
+        default: false
+    }
 
 })
 
