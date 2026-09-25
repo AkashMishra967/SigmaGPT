@@ -43,7 +43,7 @@ function ForgotPassword() {
                     type="email"
                     placeholder="Email address"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}  autoComplete="new-email"
+                    onChange={(e) => setEmail(e.target.value)}  autoComplete="off"
                 />
 
                 {message && <p className="errorMsg">{message}</p>}

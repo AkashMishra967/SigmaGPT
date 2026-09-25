@@ -47,10 +47,10 @@ function Login(){
                 <p className="subText">Log in to continue to SigmaGPT</p>
 
                 <input className="inp1" type="email" placeholder="Email address" value={email}
-                    onChange={(e) =>setemail(e.target.value)} autoComplete="new-email" />
+                    onChange={(e) =>setemail(e.target.value)} autoComplete="off" />
 
                 <input className="inp1" type="password" placeholder="Password" value={password}
-                    onChange={(e) =>setpassword(e.target.value)} autoComplete="new-email" />
+                    onChange={(e) =>setpassword(e.target.value)} autoComplete="off" />
 
                 {errorMsg && <p className="errorMsg">{errorMsg}</p>}
 
