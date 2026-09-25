@@ -85,7 +85,7 @@ const handleUpgrade = async () => {
 
         // Step 2: Razorpay checkout options
         const options = {
-            key: "rzp_test_xxxxxxxxxx",   // ✅ apna Razorpay Key ID (public wala) yaha daalo
+            key: "rzp_test_TgEHzqHejdQRcz",   // ✅ apna Razorpay Key ID (public wala) yaha daalo
             amount: order.amount,
             currency: order.currency,
             name: "SigmaGPT",
