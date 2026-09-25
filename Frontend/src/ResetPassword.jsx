@@ -54,7 +54,8 @@ function ResetPassword() {
                     type="password"
                     placeholder="New Password"
                     value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)} autoComplete="off"
+                    onChange={(e) => setNewPassword(e.target.value)}  autoComplete="new-password"
+                       name="password-field-random456"
                 />
 
                 {message && <p className="errorMsg">{message}</p>}

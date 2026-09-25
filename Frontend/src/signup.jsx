@@ -43,10 +43,12 @@ const handleSignup = async() =>{
                     onChange={(e) =>setusername(e.target.value)}  autoComplete="off" />
 
                 <input className="inp1" type="email" placeholder="Email address" value={email}
-                    onChange={(e) =>setemail(e.target.value)} autoComplete="off" />
+                    onChange={(e) =>setemail(e.target.value)}  autoComplete="new-password"
+                    name="email-field-random123" />
 
                 <input className="inp1" type="password" placeholder="Password" value={password}
-                    onChange={(e) =>setpassword(e.target.value)}  autoComplete="off" />
+                    onChange={(e) =>setpassword(e.target.value)}   autoComplete="new-password"
+                     name="password-field-random456" />
 
                 {errorMsg && <p className="errorMsg">{errorMsg}</p>}
 
