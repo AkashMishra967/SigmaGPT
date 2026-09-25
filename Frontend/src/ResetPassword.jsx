@@ -46,7 +46,7 @@ function ResetPassword() {
                     type="text"
                     placeholder="Enter OTP"
                     value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
+                    onChange={(e) => setOtp(e.target.value)} autoComplete="new-email"
                 />
 
                 <input
@@ -54,7 +54,7 @@ function ResetPassword() {
                     type="password"
                     placeholder="New Password"
                     value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
+                    onChange={(e) => setNewPassword(e.target.value)} autoComplete="new-email"
                 />
 
                 {message && <p className="errorMsg">{message}</p>}
