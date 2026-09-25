@@ -1,16 +1,10 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendOtpEmail = async (toEmail, otp) => {
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
+    await resend.emails.send({
+        from: "onboarding@resend.dev",   // Resend ka free testing sender
         to: toEmail,
         subject: "Your Password Reset OTP - SigmaGPT",
         html: `
@@ -18,10 +12,8 @@ export const sendOtpEmail = async (toEmail, otp) => {
                 <h2>Password Reset Request</h2>
                 <p>Your OTP is:</p>
                 <h1 style="letter-spacing: 5px;">${otp}</h1>
-                <p>This OTP is valid for 10 minutes. If you didn't request this, please ignore this email.</p>
+                <p>This OTP is valid for 10 minutes.</p>
             </div>
         `
-    };
-
-    await transporter.sendMail(mailOptions);
+    });
 };
