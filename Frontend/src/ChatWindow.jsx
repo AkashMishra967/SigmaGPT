@@ -73,26 +73,27 @@ const handleLogout = async() =>{
 
 
 
-
 const handleUpgrade = async () => {
     try {
-        // Step 1: Backend se order banwao
         const orderResponse = await fetch(`${BASE_URL}/api/payment/create-order`, {
             method: "POST",
             credentials: "include"
         });
         const order = await orderResponse.json();
 
-        // Step 2: Razorpay checkout options
         const options = {
-            key: "rzp_test_TgEHzqHejdQRcz",   // ✅ apna Razorpay Key ID (public wala) yaha daalo
+            key: "rzp_test_TgEHzqHejdQRcz",   // apni asli Key ID yahi rakhna
             amount: order.amount,
             currency: order.currency,
             name: "SigmaGPT",
             description: "Upgrade to Premium",
             order_id: order.id,
+            prefill: {                     // ✅ YE NAYA BLOCK ADD KARNA HAI
+                name: "",
+                email: "",
+                contact: ""
+            },
             handler: async function (response) {
-                // Step 3: Payment successful hone ke baad, backend se verify karwao
                 const verifyResponse = await fetch(`${BASE_URL}/api/payment/verify`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -114,7 +115,6 @@ const handleUpgrade = async () => {
         console.log(error);
     }
 };
-
 
   return (
     <div className="chatWindow">
