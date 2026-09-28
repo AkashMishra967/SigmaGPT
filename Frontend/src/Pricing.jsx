@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "./config.js";
 import "./Pricing.css";
 import { MyContext } from "./MyContext.jsx";
-import "./pricing.css";
+import "./Pricing.css";
 
 function Pricing() {
     const navigate = useNavigate();
