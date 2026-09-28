@@ -5,6 +5,7 @@ import Login from "./login.jsx";
 import Signup from "./signup.jsx";
 import { MyContext } from "./MyContext.jsx";
 import { useState, useEffect } from 'react';
+import { ScaleLoader } from "react-spinners";
 import { v1 as uuidv1 } from "uuid";
 import { BASE_URL } from "./config.js";
 import ForgotPassword from "./ForgotPassword.jsx";
@@ -72,10 +73,16 @@ useEffect(() => {
         isLoggedIn, setIsLoggedIn,
     };
 
-   
-    if (!authChecked) {
-        return <div>Loading...</div>;
-    }
+   if (!authChecked) {
+    return (
+        <div className="appLoader">
+            <div className="loaderLogo">S</div>
+            <ScaleLoader color="#10a37f" />
+            <p className="loaderText">Starting SigmaGPT...</p>
+            <p className="loaderHint">Server is waking up, this can take up to a minute</p>
+        </div>
+    );
+}
 
     return (
         <div className='app' data-theme={theme}>
