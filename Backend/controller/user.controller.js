@@ -62,7 +62,8 @@ export const login = async (req,res) =>{
         user :{
             id: user._id,
             email : user.email,
-            username: user.username
+            username: user.username,
+            isPremium: user.isPremium 
         }
         })
     }catch(error){
