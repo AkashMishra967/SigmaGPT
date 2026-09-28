@@ -18,3 +18,51 @@ body {
     flex-direction: column;
   }
 }
+
+body {
+  background-color: #171717;
+}
+
+.appLoader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #2a2a2a 0%, #171717 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px;
+  text-align: center;
+}
+
+.loaderLogo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10a37f, #0d8c6d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.loaderText {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.loaderHint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #9a9a9a;
+  opacity: 0;
+  animation: hintFadeIn 0.6s ease 5s forwards;
+}
+
+@keyframes hintFadeIn {
+  to { opacity: 1; }
+}
