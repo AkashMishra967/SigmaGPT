@@ -1,0 +1,165 @@
+.pricingPage {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 30px 20px 50px;
+    background: radial-gradient(circle at top, #2a2a2a 0%, #171717 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.pricingBack {
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: #9a9a9a;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 6px 0;
+    margin: 0;
+    width: auto;
+}
+.pricingBack:hover { color: #ececec; }
+
+.pricingTitle {
+    margin: 24px 0 6px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.pricingSub {
+    margin: 0 0 32px;
+    color: #9a9a9a;
+    text-align: center;
+}
+
+.pricingCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 780px;
+}
+
+.planCard {
+    position: relative;
+    flex: 1 1 300px;
+    max-width: 370px;
+    box-sizing: border-box;
+    background-color: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 28px 26px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.planCardPremium {
+    border: 1.5px solid #10a37f;
+    box-shadow: 0 8px 30px rgba(16, 163, 127, 0.18);
+}
+
+.planBadge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #10a37f;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.planName {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.planPrice {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.planPrice span {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #9a9a9a;
+}
+
+.planFeatures {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+}
+.planFeatures li {
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.planFeatures i { color: #10a37f; }
+
+.planBtn {
+    width: 100%;
+    margin: 0;
+    padding: 13px;
+    border-radius: 10px;
+    border: none;
+    background-color: #10a37f;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.planBtn:hover:not(:disabled) { background-color: #0d8c6d; }
+.planBtn:active:not(:disabled) { transform: scale(0.98); }
+.planBtn:disabled { cursor: not-allowed; opacity: 0.7; }
+
+.planBtnGhost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #9a9a9a;
+}
+
+.pricingSuccess {
+    margin-top: 24px;
+    color: #10a37f;
+    font-weight: 600;
+    text-align: center;
+}
+
+.pricingError {
+    margin-top: 20px;
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.pricingNote {
+    margin-top: 28px;
+    font-size: 0.8rem;
+    color: #7d7d7d;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .pricingTitle { font-size: 1.6rem; }
+    .planCard { padding: 24px 20px; }
+}

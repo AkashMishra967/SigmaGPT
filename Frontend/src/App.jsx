@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { ScaleLoader } from "react-spinners";
 import { v1 as uuidv1 } from "uuid";
 import { BASE_URL } from "./config.js";
+import Pricing from "./Pricing.jsx";
 import ForgotPassword from "./ForgotPassword.jsx";
 import ResetPassword from "./ResetPassword.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -93,9 +94,8 @@ useEffect(() => {
                         <Route path="/signup" element={<Signup />} />
                         <Route path="/forgot-password" element={<ForgotPassword />} />
                         <Route path="/reset-password" element={<ResetPassword />} />
-                        <Route
-                            path="/"
-                            element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
+                        <Route path="/" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
+                        <Route path="/upgrade" element={isLoggedIn ? <Pricing /> : <Navigate to="/login" />}
                         />
                     </Routes>
                 </BrowserRouter>

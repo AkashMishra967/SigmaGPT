@@ -73,49 +73,6 @@ const handleLogout = async() =>{
 
 
 
-const handleUpgrade = async () => {
-    try {
-        const orderResponse = await fetch(`${BASE_URL}/api/payment/create-order`, {
-            method: "POST",
-            credentials: "include"
-        });
-        const order = await orderResponse.json();
-
-        const options = {
-            key: "rzp_test_TgEHzqHejdQRcz",   // apni asli Key ID yahi rakhna
-            amount: order.amount,
-            currency: order.currency,
-            name: "SigmaGPT",
-            description: "Upgrade to Premium",
-            order_id: order.id,
-            prefill: {                     // ✅ YE NAYA BLOCK ADD KARNA HAI
-                name: "",
-                email: "",
-                contact: ""
-            },
-            handler: async function (response) {
-                const verifyResponse = await fetch(`${BASE_URL}/api/payment/verify`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    credentials: "include",
-                    body: JSON.stringify(response)
-                });
-                const data = await verifyResponse.json();
-                alert(data.message);
-            },
-            theme: {
-                color: "#10a37f"
-            }
-        };
-
-        const rzp = new window.Razorpay(options);
-        rzp.open();
-
-    } catch (error) {
-        console.log(error);
-    }
-};
-
   return (
     <div className="chatWindow">
 
