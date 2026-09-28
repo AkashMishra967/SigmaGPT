@@ -117,7 +117,10 @@ const handleLogout = async() =>{
       <i className="fa-solid fa-xmark"></i>
     </div>
 
-    <div className="dropDownItem"  onClick={handleUpgrade} >
+    <div className="dropDownItem"  onClick={() => {
+        setIsOpen(false);
+        navigate("/upgrade");
+    }} >
       <i className="fa-regular fa-star"></i>Upgrade plan
     </div>
     <div className="dropDownItem">
